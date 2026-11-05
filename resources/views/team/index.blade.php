@@ -8,8 +8,8 @@
         <a href="{{ route('team.create') }}">Invite</a>
     </div>
 
-    @include('team._table')
+    @include('team.table')
 
     <p class="muted">Showing {{ $members->count() }} of total {{ $members->total() }}</p>
-    <div class="pager">{{ $members->links('pagination::simple-default') }}</div>
+    <div class="pager">{{ $members->links() }}</div>
 @endsection

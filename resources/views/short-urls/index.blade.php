@@ -10,8 +10,8 @@
         @endcan
     </div>
 
-    @include('short-urls._table')
+    @include('short-urls.table')
 
     <p class="muted">Showing {{ $shortUrls->count() }} of total {{ $shortUrls->total() }}</p>
-    <div class="pager">{{ $shortUrls->links('pagination::simple-default') }}</div>
+    <div class="pager">{{ $shortUrls->links() }}</div>
 @endsection

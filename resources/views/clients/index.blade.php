@@ -8,8 +8,8 @@
         <a href="{{ route('clients.create') }}">Invite</a>
     </div>
 
-    @include('clients._table')
+    @include('clients.table')
 
     <p class="muted">Showing {{ $companies->count() }} of total {{ $companies->total() }}</p>
-    <div class="pager">{{ $companies->links('pagination::simple-default') }}</div>
+    <div class="pager">{{ $companies->links() }}</div>
 @endsection
