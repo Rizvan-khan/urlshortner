@@ -16,7 +16,7 @@ class InvitationService
 {
     private const EXPIRY_DAYS = 7;
 
-    /** SuperAdmin: nayi company + uske pehle Admin ka invite, ek transaction me. */
+   
     public function inviteClient(User $inviter, string $companyName, string $email): Invitation
     {
         $invitation = DB::transaction(function () use ($inviter, $companyName, $email) {
@@ -32,7 +32,7 @@ class InvitationService
         return $invitation;
     }
 
-    /** Admin: apni hi company me Admin/Member invite. */
+    
     public function inviteTeamMember(User $admin, string $name, string $email, Role $role): Invitation
     {
         $invitation = DB::transaction(function () use ($admin, $name, $email, $role) {
@@ -46,7 +46,7 @@ class InvitationService
         return $invitation;
     }
 
-    /** Link kholte waqt: sirf valid (na use hua, na expire) invitation. */
+
     public function findPendingOrFail(string $token): Invitation
     {
         $invitation = Invitation::where('token', $token)->firstOrFail();
@@ -56,7 +56,7 @@ class InvitationService
         return $invitation;
     }
 
-    /** Password set karke user banao. */
+   
     public function accept(string $token, string $name, string $password): User
     {
         return DB::transaction(function () use ($token, $name, $password) {
@@ -65,7 +65,7 @@ class InvitationService
             $user = User::create([
                 'name'       => $name,
                 'email'      => $invitation->email,
-                'password'   => $password, // User model ka 'hashed' cast hash karega
+                'password'   => $password, 
                 'role'       => $invitation->role,
                 'company_id' => $invitation->company_id,
             ]);

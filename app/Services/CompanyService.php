@@ -8,7 +8,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class CompanyService
 {
-    /** SuperAdmin ke liye: companies + users count + URLs count + total hits. */
+   
     public function paginateWithStats(int $perPage = 10): LengthAwarePaginator
     {
         return Company::query()
@@ -18,7 +18,7 @@ class CompanyService
             ->paginate($perPage);
     }
 
-    /** Admin ke liye: sirf apni company ki team. */
+
     public function teamFor(User $admin, int $perPage = 10): LengthAwarePaginator
     {
         return User::query()

@@ -29,7 +29,6 @@ class ShortUrlService
             ->paginate($perPage);
     }
 
-    /** Public redirect: URL dhoondo, hit badhao, wapas karo. */
     public function resolve(string $code): ShortUrl
     {
         $shortUrl = ShortUrl::where('code', $code)->firstOrFail();
@@ -38,7 +37,7 @@ class ShortUrlService
         return $shortUrl;
     }
 
-    /** Data scoping ek hi jagah: har role ko kaunsi rows dikhengi. */
+  
     private function queryFor(User $user): Builder
     {
         return match ($user->role) {
@@ -52,7 +51,7 @@ class ShortUrlService
     private function generateUniqueCode(): string
     {
         do {
-            // lower() isliye ki MySQL me unique index case-insensitive hota hai
+            
             $code = Str::lower(Str::random(7));
         } while (ShortUrl::where('code', $code)->exists());
 
