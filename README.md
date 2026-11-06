@@ -92,3 +92,10 @@ Admin and Member can create short URLs
 Admin sees only their own company's short URLs
 Member sees only their own short URLs
 Short URLs are publicly resolvable and redirect to the original URL
+
+
+# AI Usage Discloser
+I used AI tools (Claude) for the following:
+
+1. create blade files and tables
+2. setup roles and permission permission and some logics
